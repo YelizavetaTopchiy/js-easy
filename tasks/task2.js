@@ -1,11 +1,21 @@
-// Задача: Написати функцію, яка приймає рядок і повертає його у зворотному порядку,
-//  при цьому пропускаючи всі цифри.
-
 function reverseWithoutNumbers(str) {
-  // Ваш код тут
+  let letters = [];
+  
+  for (let char of str) {
+    if (isNaN(parseInt(char))) {
+      letters.push(char);
+    }
+  }
+  
+  let reversed = '';
+  for (let i = letters.length - 1; i >= 0; i--) {
+    reversed += letters[i];
+  }
+  
+  return reversed;
 }
 
-console.log(reverseWithoutNumbers("hello123world456")); // Виведе: "dlrowolleh"
-console.log(reverseWithoutNumbers("abc123xyz"));       // Виведе: "zyxabc"
+console.log(reverseWithoutNumbers("hello123world456")); 
+console.log(reverseWithoutNumbers("abc123xyz"));      
 
 module.exports = reverseWithoutNumbers;
